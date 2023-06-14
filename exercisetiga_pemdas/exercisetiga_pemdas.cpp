@@ -37,7 +37,7 @@ public:
 void pengarang::tambahPenerbit(penerbit* pPenerbit) {
     daftar_penerbit.push_back(pPenerbit);
 }
-void pengarang::tambahBuku(string pBuku) {
+void pengarang::tambahBuku(Buku* pBuku) {
     daftar_buku.push_back(pBuku);
 }
 void pengarang::cetakPenerbit() {
