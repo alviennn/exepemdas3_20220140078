@@ -69,7 +69,6 @@ void penerbit::cetakPengarang() {
 class buku {
 public:
     string nama;
-    vector<pengarang*> daftar_pengarang;
 
     buku(string pNama) :nama(pNama) {
         cout << "Buku \"" << nama << "\" ada\n";
@@ -77,15 +76,7 @@ public:
     ~buku() {
         cout << "Buku \"" << nama << "\" tidak ada\n";
     }
-
-    void tambahPengarang(pengarang*);
-    void cetakPengarang();
 };
-
-void buku::tambahPengarang(pengarang* pPengarang) {
-    daftar_pengarang.push_back(pPengarang);
-    pPengarang->tambahBuku(this->nama);
-}
 
 int main() {
     penerbit* varPenerbit1 = new penerbit("Gama Press");
@@ -107,12 +98,12 @@ int main() {
     varPenerbit2->tambahPengarang(varPengarang3);
     varPenerbit2->tambahPengarang(varPengarang4);
 
-    varBuku1->tambahPengarang(varPengarang1);
-    varBuku2->tambahPengarang(varPengarang1);
-    varBuku3->tambahPengarang(varPengarang2);
-    varBuku4->tambahPengarang(varPengarang3);
-    varBuku5->tambahPengarang(varPengarang4);
-    varBuku6->tambahPengarang(varPengarang4);
+    varPengarang1->tambahBuku(varBuku1);
+    varPengarang1->tambahBuku(varBuku2);
+    varPengarang2->tambahBuku(varBuku3);
+    varPengarang3->tambahBuku(varBuku4);
+    varPengarang4->tambahBuku(varBuku5);
+    varPengarang4->tambahBuku(varBuku6);
 
     varPenerbit1->cetakPengarang();
     varPenerbit2->cetakPengarang();
